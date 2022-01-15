@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="yemeModelStoreContainer" CdmEntityContainer="yeme20">
+    <EntitySetMapping Name="kullanıcılar">
+      <EntityTypeMapping TypeName="yemeModel.kullanıcılar">
+        <MappingFragment StoreEntitySet="kullanıcılar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kad" ColumnName="kad" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="yemn">
+      <EntityTypeMapping TypeName="yemeModel.yemn">
+        <MappingFragment StoreEntitySet="yemn">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="icerik" ColumnName="icerik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

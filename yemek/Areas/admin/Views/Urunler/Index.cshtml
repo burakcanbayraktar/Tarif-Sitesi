@@ -1,0 +1,94 @@
+﻿@model List<yemek.Models.yemn>
+@using yemek.App_Code
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Yemek</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Dashbord</a></li>
+                        <li class="breadcrumb-item active">Yemek</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                   
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Yemekler ve içerikleri</h3>
+                        </div>
+                        <div>
+                        <br />
+                            @Html.ActionLink("Yeni Ürün Ekle", "Yeni", null, new { @class = "btn btn-primary mx-3" })
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Başlık</th>
+                                        <th>İçerik</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var yemm in Model)
+                                    {
+                                    <tr>
+                                        <td><img src="~/Content/images/@yemm.foto" width="150"</td>
+                                        <td>
+                                            @yemm.baslik
+                                        </td>
+                                        <td> @Html.Raw(yemm.icerik)</td>
+                                        <td>
+                                            @Html.ActionLink("Güncelle","Guncelle",new { yemm.id }, new { @class="btn btn-info mx-4"})
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Sil", "Sil", new { yemm.id }, new { @class = "btn btn-danger mx-4" })
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>   
+                                <tfoot>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Başlık</th>
+                                        <th>İçerik</th>
+                                        <th>Güncelle</th>
+                                        <th>Sil</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+

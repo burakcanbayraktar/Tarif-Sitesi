@@ -1,0 +1,131 @@
+﻿@model List<yemek.Models.yemn> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="title">
+                        <h3>Örnek <span>Tariflerinin Fotografları</span></h3>
+                    </div>
+                    <div id="owl-example" class="owl-carousel">
+                        @foreach (var yemek in Model)
+                        {
+                        <div>
+                            <img class="img-responsive" src="~/Content/images/@yemek.foto" alt="" width="150"height="175">
+                        </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div><!-- .col-md-12 close -->
+        </div><!-- .row close -->
+    </div><!-- .container close -->
+</section><!-- slider close -->
+<!--
+about-us start
+============================== -->
+<section id="about-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <img class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms" src="~/Content/images/cooker-img.png" alt="cooker-img">
+                    <h1 class="heading wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                        Can <span>Şefin</span> </br>Yemek  <span>Tarifleri</span>
+                    </h1>
+                    <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms">
+                        1971'de İstanbul, Kadıköy'de dünyaya gelen Can Bayraktar, 1996 yılına kadar Türkiye'de kaldı. Türkiye'de uzun yıllar annesi ile birlikte çalışan usta şef'in annesi restoran ve bar işletmeciliği yapmıştır.
+
+                        25 yaşında iken 1995 senesinde Yüksek Lisans yapmak için Avustralya'ya gitmiştir. Bilkent Üniversitesi Turizm ve Otelcilik bölümünden mezun olmuş, daha sonra master yapmıştır.
+
+                        Can Bayraktar, Sydney'de kuzeni ile birlikte 'Efendy' isimli bir Türk restoranı açmıştır. Menüsünde pek çok türk lezzeti bulunan restoran yurt dışında Türk lezzetlerini temsil eden bir marka haline gelmiştir.
+                    </p>
+                </div>
+            </div><!-- .col-md-12 close -->
+        </div><!-- .row close -->
+    </div><!-- .containe close -->
+</section><!-- #call-to-action close -->
+<!--
+blog start
+============================ -->
+
+
+
+<section id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h1 class="heading">Yemek <span>Tarifleri</span> Can <span>Şeften</span></h1>
+                    <ul>
+                        @foreach (var yemek in Model)
+                        { <li class="wow fadeInLeft" data-wow-duration="300ms" data-wow-delay="300ms">
+                                <div class="blog-img">
+                                    <img src="~/Content/images/@yemek.foto" alt="blog-img" width="200"height="175" >
+                                </div>
+                                <div class="content-right">
+                                    <h3>@yemek.baslik</h3>
+                                    @Html.Raw(@yemek.icerik)
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    
+                </div>
+            </div><!-- .col-md-12 close -->
+        </div><!-- .row close -->
+    </div><!-- .containe close -->
+</section><!-- #blog close -->
+
+<!--
+    
+
+price start
+============================ -->
+<section id="price">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">Can <span>Şeften</span> Ufak <span>Tüyolar</span></h1>
+                    <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">Soğan doğrarken gözlerinizin yaşarmaması için yanınızda bir mum yakın ve daha sonra söndürün. Başka bir yol ise soğanı ikiye bölün, soğuk su altında tutun, biraz dinlendirin ve sonra kesin.Eğer domatesleri doğrarken sürekli suyunu salmalarından şikayet ediyorsanız, domatesleri ekmek bıçağıyla kesin. Böylece halkaları daha ince olur ve suyu mutfağın her yerine dağılmaz. Dilimlenmiş patateslerin daha lezzetli olmasını istiyorsanız, üzerine bir tel ızgara yerleştirin ve tavuk butlarını dizin. Böylece tavuğun lezzeti ile patateslerin tadı çok daha güzel olur.Eğer tavuk şiş hazırlayacaksanız ve fırın kabınız istediğiniz büyüklükte değilse bunu kolaylaştıracak bir yöntemi sizinle paylaşıyoruz. Tavukları dikey olarak tutmak için tahta şişler kullanarak orta büyüklükteki bir fırın kabına sığdırabilirsiniz. </p>
+                    <div class="pricing-list">
+                        <div class="title">
+                            <h3>Tarif <span>Listesi</span></h3>
+                        </div>
+                        <ul>
+                            @foreach (var yemek in Model)
+                            { 
+                            <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                                <div class="item">
+                                    <div class="item-title">
+                                        <h2>@yemek.baslik</h2>
+                                        <div class="border-bottom"></div>
+
+                                    </div>
+                                    @Html.Raw(@yemek.icerik)
+                                </div>
+                            </li>
+                            }
+
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div><!-- .col-md-12 close -->
+        </div><!-- .row close -->
+    </div><!-- .containe close -->
+</section><!-- #price close -->
+<!--
+subscribe start
+============================ -->
+
+
+
+
